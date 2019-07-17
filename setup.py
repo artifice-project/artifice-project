@@ -12,11 +12,11 @@ setup(
         "",
     ],
     modules=[
-        artifice.app.database,
-        artifice.app.graphql,
-        artifice.app.model,
-        artifice.app.rest,
-        artifice.app.scraper,
-        artifice.app.util,
+        artifice.database,
+        artifice.graphql,
+        artifice.model,
+        artifice.rest,
+        artifice.scraper,
+        artifice.util,
     ]
 )
