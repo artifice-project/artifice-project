@@ -60,19 +60,27 @@ probably django, since it gets us up and running in a stable configuration quick
 parser is a beautifulsoup parser as well as an xml parser, which gets its raw data from a chromedriver instance. the parsed data is then transmitted by means of the socketio app
 
 ### procedure
--- event triggers crawler (CRAWLER)
+- event triggers crawler (CRAWLER)
 
--- raw data is gathered (CHROMEDRIVER)
--- parser digests a webpage (PARSER)
+- raw data is gathered (CHROMEDRIVER)
 
--- api request is sent to model service (SOCKETIO)
--- data is stored in database (POSTGRES)
+- parser digests a webpage (PARSER)
 
--- master service receives data (DJANGO)
--- data is ingested by models (MODELS)
--- models are tweaked and weighted (MODELS)
+- api request is sent to model service (SOCKETIO)
 
--- page request generates a graphql schema request (DJANGO)
--- data is drawn from cached to preserve resources (REDIS)
+- data is stored in database (POSTGRES)
 
--- pages are rendered with enhanced formatting (DJANGO)
+- master service receives data (DJANGO)
+
+- data is ingested by models (MODELS)
+
+- models are tweaked and weighted (MODELS)
+
+- page request generates a graphql schema request (DJANGO)
+
+- data is drawn from cached to preserve resources (REDIS)
+
+- pages are rendered with enhanced formatting (DJANGO)
+
+## scraper
+the scraper uses a list of links to site homepages to define entrypoints. for each site on the list, the crawler will visit the home page and gather information such as the title, headlines, article text, image captions, and links. for each link on the page that contains a reference within the site, the link is visited and the details from the article are scraped in much the same fashion as the homepage. text is extracted from all the parsed elements and a JSON object is created for each. a single JSON object may contain keys corresponding to the parsed elements, with some or all of the possible keys present.
