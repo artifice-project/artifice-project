@@ -84,3 +84,24 @@ parser is a beautifulsoup parser as well as an xml parser, which gets its raw da
 
 ## scraper
 the scraper uses a list of links to site homepages to define entrypoints. for each site on the list, the crawler will visit the home page and gather information such as the title, headlines, article text, image captions, and links. for each link on the page that contains a reference within the site, the link is visited and the details from the article are scraped in much the same fashion as the homepage. text is extracted from all the parsed elements and a JSON object is created for each. a single JSON object may contain keys corresponding to the parsed elements, with some or all of the possible keys present.
+
+
+
+##### rambling
+A critical function of the crawler is the ability to keep track of which links have already been visited. We use an ordered dictionary for this task. The keys of the dict are the link strings, and the values are a boolean of whether the page has already been scraped. Initially, the links in the queue have a value of False. Once the link is dispatched, the value is set to None. Once an egg is returned, that link's key value is set to True.
+When we ask the queue for a link to crawl to, we must satisfy several conditions: 1--Value is False, 2--link is the first key which has a False value.
+
+def update_queue():
+  pass
+
+def next_queue():
+  pass
+
+def uniquify():
+  pass 
+
+
+
+
+
+<!--  -->
