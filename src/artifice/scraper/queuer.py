@@ -1,8 +1,9 @@
+
 import json
 from collections import OrderedDict
 
 
-class Queue:
+class Queuer:
     """ Queue is the heart of the crawler. Links are added in the form of a list.
     Links are checked for duplicates against both the queue and history. """
 
@@ -40,9 +41,11 @@ class Queue:
         """
         try:
             # item is a tuple, not a key-value pair
-            return self.queue.popitem(last=False)[0]
+            link = self.queue.popitem(last=False)
+            return link[0]
         except:
-            return None
+            print(f"[BAD LINK]: {link}")
+            raise ValueError("Links exhausted from queue.")
 
 
     def _done(self, url):
@@ -73,17 +76,21 @@ class Queue:
         return data
 
 
-links = [
-    "www.apple.com",
-    "www.bestbuy",
-    "www.cisco.com",
-    "www.depot.com",
-]
-target = "www.facebook.com"
+# <!--  -->
 
-Queue = Queue()
-Queue._add(links)
-Queue._done(target)
-print(Queue._next())
-print(Queue._export(as_JSON=True))
-print(Queue._size())
+if __name__ == '__main__':
+
+    links = [
+        "www.apple.com",
+        "www.bestbuy",
+        "www.cisco.com",
+        "www.depot.com",
+    ]
+    target = "www.facebook.com"
+
+    Q = Queuer()
+    Q._add(links)
+    Q._done(target)
+    print(Q._next())
+    print(Q._export(as_JSON=True))
+    print(Q._size())
