@@ -1,11 +1,11 @@
-
 import json
 from collections import OrderedDict
 
 
 class Queuer:
     """ Queue is the heart of the crawler. Links are added in the form of a list.
-    Links are checked for duplicates against both the queue and history. """
+    Links are checked for duplicates against both the queue and history.
+    Can be initialized either with a created list, or by loading an exported state. """
 
     def __init__(self):
         """
@@ -76,21 +76,18 @@ class Queuer:
         return data
 
 
+    def load_state_from_json(self, jsonfile):
+        try:
+            with open(jsonfile) as f:
+                data = json.load(f)
+            queue = data["Queue.queue"]["items"]
+            history = data["Queue.history"]["items"]
+            for url in queue:
+                self.queue.update( {url : None} )
+            for url in history:
+                self.history.add(url)
+        except:
+            raise ValueError("Unable to read JSON from file.")
+
+
 # <!--  -->
-
-if __name__ == '__main__':
-
-    links = [
-        "www.apple.com",
-        "www.bestbuy",
-        "www.cisco.com",
-        "www.depot.com",
-    ]
-    target = "www.facebook.com"
-
-    Q = Queuer()
-    Q._add(links)
-    Q._done(target)
-    print(Q._next())
-    print(Q._export(as_JSON=True))
-    print(Q._size())

@@ -112,27 +112,4 @@ class Spider(object):
         )
 
 
-if __name__ == '__main__':
-
-    target = "https://www.npr.org/sections/politics"
-    spider = Spider(target)
-    spider.lay()
-    egg = spider.egg()
-    del spider
-    pprint(egg)
-
-
-
-
-"""
-
-def fail_silently(f):
-    @wraps(f)
-    def wrap(*args, **kwargs):
-        try:
-            return f(*args, **kwargs)
-        except:
-            pass
-    return wrap
-
-"""
+# <!-- -->

@@ -7,7 +7,8 @@ from sqlalchemy_serializer import SerializerMixin
 from flask import (
     Flask,
     jsonify,
-    request
+    request,
+    session,
 )
 # custom modules
 
@@ -29,7 +30,7 @@ class Egg_db(db.Model, SerializerMixin):
 
     id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)
     created_at = db.Column(db.DateTime(), nullable=False, default=datetime.datetime.utcnow())
-    url = db.Column(db.String(500), unique=False)
+    url = db.Column(db.String(500), unique=True)
     egg = db.Column(db.Text, unique=False, nullable=False)
 
     @staticmethod
@@ -43,7 +44,18 @@ class Egg_db(db.Model, SerializerMixin):
 
 @app.route("/")
 def home():
-    return "HELLO WORLD"
+    rows = Egg_db.query.count()
+    bytes = round(os.path.getsize(DB_FILE[9:]) / (1024 * 1024), 1)
+    return \
+    f"""
+    ARTIFICE REST SERVICE OVERVIEW <br>
+    Total Visited: {rows} <br>
+    Database Size: {bytes} MB <br>
+    /update [POST]  <br>
+    /retrieve [GET]  <br>
+    /text [GET] <br>
+    /text?limit=[integer] [GET] <br>
+    """
 
 
 @app.route("/update", methods=["POST"])
@@ -72,4 +84,26 @@ def egg_retrieve():
             r = result.to_dict()
             egg = Egg_db.deserialize(r["egg"])
             eggs.append(egg)
+    return jsonify(eggs)
+
+
+@app.route("/text", methods=["GET"])
+def egg_text():
+    if "limit" in request.args.keys():
+        try:
+            n_results = int(request.args["limit"])
+        except:
+            n_results = None
+    else:
+        n_results = None
+    if n_results:
+        results = Egg_db.query.limit(n_results).all()
+    else:
+        results = Egg_db.query.all()
+    eggs = []
+    if results:
+        for result in results:
+            r = result.to_dict()
+            egg = Egg_db.deserialize(r["egg"])
+            eggs.append(egg["texts"])
     return jsonify(eggs)

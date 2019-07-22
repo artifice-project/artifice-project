@@ -1,59 +1,58 @@
 import os
 import json
 
+from web import Web
 from queuer import Queuer
 from spider import Spider
-from web import Web
+
 
 API_ENDPOINT = "http://localhost:10000/update"
-SAVE_FILE = "queue.json"
 SEED_URL = "https://www.npr.org/sections/politics"
-DATA_FILE = "databasev2.json"
+QUEUE_FILE = os.path.join("data", "queue.json")
+DATA_FILE = os.path.join("data", "database.json")
 DATABASE = []
 TALLY = 0
-MAX_VALUE = 10
+MAX_VALUE = 10000
 
-# try:
-print("[INITIALIZING]")
-web = Web(API_ENDPOINT)
-# print("[created WEB]")
-Q = Queuer()
-# print("[created QUEUER]")
-Spi = Spider(SEED_URL)
-# print("[planting SEED_URL]")
-Spi.lay()
-# print("[laying EGG]")
-egg = Spi.egg()
-# print("[created EGG]")
-status_code = web.POST(egg)
-# print("[posted EGG]")
-Q._add(egg["links"])
-# print("[adding LINKS]")
-Q._done(SEED_URL)
-print("[ENTERING LOOP]")
-while TALLY < MAX_VALUE:
-    url = Q._next()     # raises Error on failure
-    spider = Spider(url)
-    spider.lay()
-    egg = spider.egg()
-    status_code = web.POST(egg)
-    DATABASE.append(egg)
-    Q._add(egg["links"])
-    Q._done(url)
-    TALLY += 1
-    print(f"[ #{TALLY} ]\t[{status_code}]\t{url}")
 
-# except:
-#     print("[EXITING]")
-#     pass
-#
-# finally:
-#     datastr = json.dumps(DATABASE, indent=4)
-#     jsonstr = Q._export(as_JSON=True)
-#     with open(os.path.join("data", SAVE_FILE), "w") as f:
-#         print(f"[SAVING] {SAVE_FILE}")
-#         f.write(jsonstr)
-#     with open(os.path.join("data", DATA_FILE), "w") as f:
-#         print(f"[SAVING] {DATA_FILE}")
-#         f.write(datastr)
-#     print("\n[DONE]")
+if __name__ == '__main__':
+    try:
+        print("[INITIALIZING]")
+        web = Web(API_ENDPOINT)
+        Q = Queuer()
+        try:
+            Q.load_state_from_json(QUEUE_FILE)
+            print("[QUEUE] using QUEUE_FILE")
+        except:
+            Q._add([SEED_URL])
+            print("[QUEUE] using SEED_URL")
+        print("[ENTERING LOOP]")
+        while TALLY < MAX_VALUE:
+            url = Q._next()     # raises Error on failure
+            spider = Spider(url)
+            spider.lay()
+            egg = spider.egg()
+            status_code = web.POST(egg)
+            DATABASE.append(egg)
+            Q._add(egg["links"])
+            Q._done(url)
+            TALLY += 1
+            print(f"[#{TALLY}]\t[{status_code}]\t{url}")
+
+    except:
+        print("[EXITING]")
+        pass
+
+    finally:
+        datastr = json.dumps(DATABASE, indent=4)
+        jsonstr = Q._export(as_JSON=True)
+        with open(QUEUE_FILE, "w") as f:
+            print(f"[SAVING] {QUEUE_FILE}")
+            f.write(jsonstr)
+        with open(DATA_FILE, "w") as f:
+            print(f"[SAVING] {DATA_FILE}")
+            f.write(datastr)
+        print("\n[DONE]")
+
+
+# <!-- -->
