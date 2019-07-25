@@ -18,12 +18,8 @@ def get_schema():
 @app.route("/")
 def home():
     schema = get_schema()
-    return render_template("index.html", schema=schema)
+    return render_template("navbar.html", schema=schema)
 
-@app.route("/base")
-def base():
-    schema = get_schema()
-    return render_template("base.html", schema=schema)
 
 if __name__ == '__main__':
     app.run(
