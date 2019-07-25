@@ -77,7 +77,13 @@ def egg_update():
 
 @app.route("/retrieve", methods=["GET"])
 def egg_retrieve():
-    results = Egg_db.query.all()
+    n_results = 10
+    if "limit" in request.args.keys():
+        try:
+            n_results = int(request.args["limit"])
+        except:
+            pass
+    results = Egg_db.query.limit(n_results).all()
     eggs = []
     if results:
         for result in results:
@@ -89,17 +95,13 @@ def egg_retrieve():
 
 @app.route("/text", methods=["GET"])
 def egg_text():
+    n_results = 10
     if "limit" in request.args.keys():
         try:
             n_results = int(request.args["limit"])
         except:
-            n_results = None
-    else:
-        n_results = None
-    if n_results:
-        results = Egg_db.query.limit(n_results).all()
-    else:
-        results = Egg_db.query.all()
+            pass
+    results = Egg_db.query.limit(n_results).all()
     eggs = []
     if results:
         for result in results:
