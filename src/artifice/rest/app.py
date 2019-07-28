@@ -83,7 +83,11 @@ def egg_retrieve():
             n_results = int(request.args["limit"])
         except:
             pass
-    results = Egg_db.query.limit(n_results).all()
+    print(n_results)
+    if n_results is 0:
+        results = Egg_db.query.all()
+    else:
+        results = Egg_db.query.limit(n_results).all()
     eggs = []
     if results:
         for result in results:
@@ -101,7 +105,11 @@ def egg_text():
             n_results = int(request.args["limit"])
         except:
             pass
-    results = Egg_db.query.limit(n_results).all()
+    print(n_results)
+    if n_results is 0:
+        results = Egg_db.query.all()
+    else:
+        results = Egg_db.query.limit(n_results).all()
     eggs = []
     if results:
         for result in results:

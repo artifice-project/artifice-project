@@ -50,18 +50,22 @@
 
   <br>
   <!-- ========== START OF BODY ========== -->
-  <main role="main" class="container">
-    <div class="card" style="width: 18rem;">
+
+  <main role="main" class="d-flex justify-content-center align-items-center container">
+    {% for schema in schemas %}
+    <div class="card" style="width: 24rem;">
       <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Map_of_Hawaii_highlighting_Kahoolawe.svg/1920px-Map_of_Hawaii_highlighting_Kahoolawe.svg.png" alt="Card image cap">
       <div class="card-body">
-        <h3 class="card-title">headline</h3>
-        <small><strong>publish date</strong></small>
-        <p class="card-text" style="font-size: 12px;">Some quick example text to build on the card title and make up the bulk of the card's content. Description of the article</p>
+        <h3 class="card-title"><a href="{{ schema.story_id }}">{{ schema.headline }}</a></h3>
+        <small><strong>Published: {{ schema.timestamp }}</strong></small>
+        <p class="card-text" style="font-size: 12px; overflow: hidden;">{{ schema.byline }}</p>
         <div>
-          <a href="#" class="btn btn-outline-secondary">Read More</a>
+          <a href="{{ schema.story_id }}" class="badge badge-light">Read More</a>
         </div>
       </div>
     </div>
+    <br>
+    {% endfor %}
   </main>
   <!-- ========== END OF BODY ========== -->
 

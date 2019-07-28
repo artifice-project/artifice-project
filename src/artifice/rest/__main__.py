@@ -1,5 +1,5 @@
-from app import app as application
-from app import db as database
+from .app import app as application
+from .app import db as database
 
 
 database.create_all()
