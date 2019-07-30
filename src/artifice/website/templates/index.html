@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Artifice</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600,700,900&amp;subset=latin-ext" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<!-- Tooltip plugin (zebra) css file -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/zebra-tooltip/zebra_tooltips.min.css') }}">
+
+	<!-- Owl Carousel plugin css file. only used pages -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/owl-carousel/assets/owl.carousel.min.css') }}">
+
+	<!-- Ideabox main theme css file. you have to add all pages -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main-style.css') }}">
+
+	<!-- Ideabox responsive css file -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/responsive-style.css') }}">
+</head>
+
+<body>
+
+	<!-- header start -->
+	<header class="header">
+		<div class="header-wrapper">
+
+			<!--sidebar menu toggler start -->
+			<div class="toggle-sidebar material-button">
+				<i class="material-icons">&#xE5D2;</i>
+			</div>
+			<!--sidebar menu toggler end -->
+
+			<!--logo start -->
+			<div class="logo-box">
+				<h1>
+					<a href="index.html" class="logo"></a>
+				</h1>
+			</div>
+			<!--logo end -->
+
+			<div class="header-menu">
+
+				<!-- header left menu start -->
+				<ul class="header-navigation" data-show-menu-on-mobile>
+					<li>
+						<a href="#" class="material-button submenu-toggle">HOME</a>
+						<div class="header-submenu">
+							<ul>
+								<li><a href="index.html">Home demo 1</a></li>
+								<li><a href="index2.html">Home demo 2</a></li>
+								<li><a href="index3.html">Home demo 3</a></li>
+								<li><a href="index4.html">Home demo 4</a></li>
+								<li><a href="index5.html">Home demo 5</a></li>
+								<li><a href="index6.html">Home demo 6</a></li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<a href="#" class="material-button submenu-toggle">POSTS</a>
+						<div class="header-submenu">
+							<ul>
+								<li><a href="list-timeline.html">List timeline</a></li>
+								<li><a href="list-two-column.html">List column 2</a></li>
+								<li><a href="list-three-column.html">List column 3</a></li>
+								<li><a href="detail-standart.html">Detail standart</a></li>
+								<li><a href="detail-parallax.html">Detail parallax</a></li>
+								<li><a href="detail-with-large-adbox.html">Detail adbox 1</a></li>
+								<li><a href="detail-with-slim-adbox.html">Detail adbox 2</a></li>
+								<li><a href="detail-left-sidebar.html">Left sidebar</a></li>
+								<li><a href="detail-left-sidebar-adbox.html">Left sidebar adbox</a></li>
+								<li><a href="detail-full-width.html">Full width</a></li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<a href="#" class="material-button submenu-toggle">VIDEO</a>
+						<div class="header-submenu">
+							<ul>
+								<li><a href="video-standart.html">Video standart</a></li>
+								<li><a href="video-iframe.html">Video iframe</a></li>
+								<li><a href="video-custom-player.html">Video custom player</a></li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<a href="#" class="material-button submenu-toggle">EXTRA PAGES <i class="material-icons">&#xE313;</i></a>
+						<div class="header-submenu">
+							<ul>
+								<li><a href="authors.html">Authors</a></li>
+								<li><a href="author-posts-1.html">Author posts-column</a></li>
+								<li><a href="author-posts-2.html">Author posts-timeline</a></li>
+								<li><a href="about-us.html">About us</a></li>
+								<li><a href="privacy-policy.html">Privacy policy</a></li>
+								<li><a href="contact.html">Contact</a></li>
+								<li><a href="error.html">Error</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+				<!-- header left menu end -->
+
+			</div>
+			<div class="header-right with-seperator">
+
+				<!-- header right menu start -->
+				<ul class="header-navigation">
+					<li>
+						<a href="#" class="material-button search-toggle"><i class="material-icons">&#xE8B6;</i></a>
+					</li>
+				</ul>
+				<!-- header right menu end -->
+
+			</div>
+
+			<!--header search panel start -->
+			<div class="search-bar">
+				<form class="search-form">
+					<div class="search-input-wrapper">
+						<input type="text" name="qq" placeholder="search something..." class="search-input">
+						<button type="submit" name="search" class="search-submit"><i class="material-icons">&#xE5C8;</i></button>
+					</div>
+					<span class="search-close search-toggle">
+						<i class="material-icons">&#xE5CD;</i>
+					</span>
+				</form>
+			</div>
+			<!--header search panel end -->
+
+		</div>
+	</header>
+	<!-- header end -->
+
+	<!-- Left sidebar menu start -->
+	<div class="sidebar">
+		<div class="sidebar-wrapper">
+
+			<!-- side menu logo start -->
+			<div class="sidebar-logo">
+				<a href="#"></a>
+				<div class="sidebar-toggle-button">
+					<i class="material-icons">&#xE317;</i>
+				</div>
+			</div>
+			<!-- side menu logo end -->
+
+			<!-- showing on mobile screen sizes -->
+			<!-- mobile menu start -->
+			<div id="mobileMenu">
+				<div class="sidebar-seperate"></div>
+			</div>
+			<!-- mobile menu end -->
+
+			<!-- sidebar menu start -->
+			<ul class="sidebar-menu">
+				<li class="active">
+					<a href="#" class="material-button">
+						<span class="menu-icon"><i class="material-icons">&#xE88A;</i></span>
+	                	<span class="menu-label">Home</span>
+	                </a>
+	            </li>
+	            <li>
+					<a href="#" class="material-button">
+						<span class="menu-icon"><i class="material-icons">&#xE038;</i></span>
+	                	<span class="menu-label">Videos</span>
+	                </a>
+	            </li>
+	            <li>
+					<a href="#" class="material-button">
+						<span class="menu-icon"><i class="material-icons">&#xE0BF;</i></span>
+	                	<span class="menu-label">Posts</span>
+	                </a>
+	            </li>
+	            <li>
+					<a href="#" class="material-button">
+						<span class="menu-icon"><i class="material-icons">&#xE866;</i></span>
+	                	<span class="menu-label">Contact</span>
+	                </a>
+	            </li>
+	            <li>
+					<a href="#" class="material-button">
+						<span class="menu-icon"><i class="material-icons">&#xE8B0;</i></span>
+	                	<span class="menu-label">Multi Menu</span>
+	                	<span class="multimenu-icon"><i class="material-icons">&#xE313;</i></span>
+	                </a>
+	                <ul>
+	                	<li>
+	                		<a href="#"><span class="menu-label">Menu Level 1</span></a>
+	                	</li>
+	                	<li>
+	                		<a href="#"><span class="menu-label">Menu Level 2</span></a>
+	                	</li>
+	                	<li>
+	                		<a href="#"><span class="menu-label">Menu Level 3</span></a>
+	                	</li>
+	                </ul>
+	            </li>
+			</ul>
+			<!-- sidebar menu end -->
+
+			<div class="sidebar-seperate"></div>
+
+			<!-- sidebar menu start -->
+			<ul class="sidebar-menu">
+				<li>
+					<a href="#" class="material-button">
+						<span class="menu-icon"><i class="material-icons">&#xE88A;</i></span>
+	                	<span class="menu-label">Extra Menu One</span>
+	                </a>
+	            </li>
+	            <li>
+					<a href="#" class="material-button">
+						<span class="menu-icon"><i class="material-icons">&#xE8B0;</i></span>
+	                	<span class="menu-label">Extra Menu Two</span>
+	                </a>
+	            </li>
+	            <li>
+					<a href="#" class="material-button">
+						<span class="menu-icon"><i class="material-icons">&#xE038;</i></span>
+	                	<span class="menu-label">Extra Menu Three</span>
+	                </a>
+	            </li>
+			</ul>
+			<!-- sidebar menu end -->
+
+			<div class="sidebar-seperate"></div>
+
+			<!-- sidebar menu start -->
+			<ul class="sidebar-menu">
+				<li>
+					<a href="#" class="facebook material-button">
+	                	<span class="menu-label">Facebook</span>
+	                </a>
+	            </li>
+	            <li>
+					<a href="#" class="twitter material-button">
+	                	<span class="menu-label">Twitter</span>
+	                </a>
+	            </li>
+	            <li>
+					<a href="#" class="github material-button">
+	                	<span class="menu-label">GitHub</span>
+	                </a>
+	            </li>
+			</ul>
+			<!-- sidebar menu end -->
+		</div>
+	</div>
+	<!-- Left sidebar menu end -->
+
+	<!--Main container start -->
+	<main class="main-container">
+		<section class="main-highlight">
+			<div class="highlight-carousel slider-carousel">
+
+				<!-- Carousel items start -->
+				<div class="owl-carousel" id="postCarousel">
+            {% for story in stories.carousel_posts %}
+				     <div class="item">
+
+				    	<article class="post-box" style="background-image: url({{ story.photo.image }});">
+				    		<div class="post-overlay">
+				    			<a href="#" class="post-category" title="" rel="tag">{{ story.content.topic }}</a>
+				    			<h3 class="post-title">{{ story.content.headline }}</h3>
+				    			<div class="post-meta">
+				    				<div class="post-meta-author-avatar">
+				    					<img alt="avatar" src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" class="avatar" height="24" width="24">
+				    				</div>
+				    				<div class="post-meta-author-info">
+				    					<span class="post-meta-author-name">
+				    						<a href="#" title="" rel="author">{{ story.content.author }}</a>
+				    					</span>
+				    					<span class="middot">·</span>
+				    					<span class="post-meta-date">
+				    						<abbr class="published updated" title="">{{ story.meta.publish_date }}</abbr>
+				    					</span>
+				    				</div>
+				    			</div>
+				    		</div>
+				    		<a href="#" class="post-overlayLink"></a>
+				    	</article>
+
+				    </div>
+            {% endfor %}
+				</div>
+				<!-- Carousel items end -->
+
+			</div>
+		</section>
+		<section class="main-content">
+			<div class="main-content-wrapper">
+				<div class="content-body">
+					<div class="content-timeline">
+						<!--Timeline header area start -->
+						<div class="post-list-header">
+							<span class="post-list-title">Latest stories</span>
+						</div>
+						<!--Timeline header area end -->
+
+
+						<!--Timeline items start -->
+						<div class="timeline-items">
+              {% for story in stories.timeline_posts %}
+							<div class="timeline-item">
+								<div class="timeline-left">
+									<div class="timeline-left-wrapper">
+										<a href="#" class="timeline-category" data-zebra-tooltip title="{{ story.content.topic }}"><i class="material-icons">&#xE894;</i></a>
+										<span class="timeline-date">{{ story.meta.elapsed_time }}</span>
+									</div>
+								</div>
+								<div class="timeline-right">
+									<div class="timeline-post-image">
+										<a href="#">
+											<img src="{{ story.photo.image }}" width="260">
+										</a>
+									</div>
+									<div class="timeline-post-content">
+										<a href="#" class="timeline-category-name">{{ story.content.topic }}</a>
+										<a href="#">
+											<h3 class="timeline-post-title">{{ story.content.headline }}</h3>
+										</a>
+										<div class="timeline-post-info">
+											<a href="#" class="author">{{ story.content.author }}</a>
+											<span class="dot"></span>
+											<span class="comment">{{ story.social.comments }} comments</span>
+										</div>
+									</div>
+								</div>
+							</div>
+              {% endfor %}
+						</div>
+						<!--Timeline items end -->
+
+						<!--Data load more button start  -->
+						<div class="load-more">
+							<button class="load-more-button material-button" type="button">
+								<i class="material-icons">&#xE5D5;</i>
+								<span>Load More</span>
+							</button>
+						</div>
+						<!--Data load more button start  -->
+					</div>
+
+				</div>
+				<div class="content-sidebar">
+					<div class="sidebar_inner">
+
+						<div class="widget-item">
+							<div class="w-header">
+								<div class="w-title">Popular Posts</div>
+								<div class="w-seperator"></div>
+							</div>
+							<div class="w-boxed-post">
+								<ul>
+                  {% for story in stories.popular_posts %}
+									<li class="active">
+										<a href="#" style="background-image: url({{ story.photo.image }});">
+											<div class="box-wrapper">
+												<div class="box-left">
+													<span>{{ loop.index }}</span>
+												</div>
+												<div class="box-right">
+													<h3 class="p-title">{{ story.content.headline }}</h3>
+													<div class="p-icons">
+														{{ story.social.likes }} likes . {{ story.social.comments }} comments
+													</div>
+												</div>
+											</div>
+										</a>
+									</li>
+                  {% endfor %}
+								</ul>
+							</div>
+						</div>
+
+						<div class="seperator"></div>
+
+						<a href="#" class="widget-ad-box">
+							<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa8Fz93YtiU4JTgdZPREuftod5MFKA0bMO96s4oog3KmFaTiiUGw" width="300" height="250">
+						</a>
+
+					</div>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+
+	<div class="overlay"></div>
+
+	<script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+
+	<!-- Tooltip plugin (zebra) js file -->
+	<script src="{{ url_for('static', filename='plugins/zebra-tooltip/zebra_tooltips.min.js') }}"></script>
+
+	<!-- Owl Carousel plugin js file -->
+	<script src="{{ url_for('static', filename='plugins/owl-carousel/owl.carousel.min.js') }}"></script>
+
+	<!-- Ideabox theme js file. you have to add all pages. -->
+	<script src="{{ url_for('static', filename='js/main-script.js') }}"></script>
+
+	<script type="text/javascript">
+
+		//Owl carousel initializing
+		$('#postCarousel').owlCarousel({
+		    loop:true,
+		    dots:true,
+		    nav:true,
+		    navText: ['<span><i class="material-icons">&#xE314;</i></span>','<span><i class="material-icons">&#xE315;</i></span>'],
+		    items:1,
+		    margin:20
+		})
+
+		//widget carousel initialize
+		$('#widgetCarousel').owlCarousel({
+		    dots:true,
+		    nav:false,
+		    items:1
+		})
+
+	</script>
+
+</body>
+
+</html>
