@@ -22,3 +22,7 @@ def get_schema():
 def home():
     schemas = [get_schema() for _ in range(3)]
     return render_template("navbar.html", schemas=schemas)
+
+@app.route("/fancy")
+def fancy():
+    return render_template("fancy.html")

@@ -12,7 +12,7 @@ QUEUE_FILE = os.path.join("data", "queue.json")
 DATA_FILE = os.path.join("data", "database.json")
 DATABASE = []
 TALLY = 0
-MAX_VALUE = 10000
+MAX_VALUE = 10
 
 
 if __name__ == '__main__':
