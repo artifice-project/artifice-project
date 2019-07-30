@@ -1,39 +1,10 @@
 from datetime import datetime
-from marshmallow import Schema, fields, pprint
 from flask import Flask, render_template, url_for, jsonify
 
+import artifice.util
+from schemas import StoryCore
 
 app = Flask(__name__)
-
-
-class StorySocial(Schema):
-    comments = fields.Int()
-    views = fields.Int()
-    likes = fields.Int()
-    shares = fields.Int()
-
-
-class StoryMeta(Schema):
-    publish_date = fields.DateTime()
-    elapsed_time = fields.DateTime()
-
-
-class StoryPhoto(Schema):
-    image = fields.Str()
-    caption = fields.Str()
-
-
-class StoryContent(Schema):
-    topic = fields.Str()
-    headline = fields.Str()
-    author = fields.Str()
-
-
-class StoryCore(Schema):
-    meta = fields.Nested(StoryMeta())
-    social = fields.Nested(StorySocial())
-    photo = fields.Nested(StoryPhoto())
-    content = fields.Nested(StoryContent())
 
 
 social = dict(
@@ -42,33 +13,34 @@ social = dict(
     likes=18,
     shares=9,
 )
-
+_published = datetime(2019, 7, 30, 2, 39, 10, 744482)
+_current = artifice.util.right_now()
 meta = dict(
-    publish_date=datetime.now(),
-    elapsed_time=datetime.now(),
+    publish_date=_published,
+    current_time=_current,
+    elapsed_time=artifice.util.decorate_time(_published,_current),
 )
-
 photo = dict(
-    image = "https://www.newleafls.com/uploads/2019/05/hero-landscape.jpg",
-    caption = "Photo of a landscape.",
+    # image="https://www.newleafls.com/uploads/2019/05/hero-landscape.jpg",
+    image="https://steamuserimages-a.akamaihd.net/ugc/2433509963997568736/4BF2B74EC1D22EA9DDAD1485342249025A5D97BB/",
+    caption="Photo of a landscape.",
 )
-
 content = dict(
     topic="Technology",
-    headline = "This Is The Headline You\'ll Write",
+    headline="This Is The Headline You\'ll Write",
     author="Admin",
 )
-
+link = dict(
+    url="#",
+)
 story = dict(
     content=content,
     meta=meta,
     photo=photo,
     social=social,
+    link=link,
 )
 
-# schema = StoryCore()
-# result = schema.dump(story)
-# pprint(result.data, indent=2)
 
 @app.route("/")
 def index():
@@ -76,14 +48,28 @@ def index():
     schema = StoryCore().dump(story)
     carousel_posts = [schema.data] * 3
     popular_posts = [schema.data] * 4
-    timeline_posts = [schema.data] * 10
+    timeline_posts = [schema.data] * 11
     stories = dict(
         carousel_posts=carousel_posts,
         popular_posts=popular_posts,
-        timeline_posts=timeline_posts
+        timeline_posts=timeline_posts,
     )
     return render_template("index.html", stories=stories)
-    # return jsonify(stories)
+
+
+@app.route("/raw")
+def raw():
+    global story
+    schema = StoryCore().dump(story)
+    carousel_posts = [schema.data] * 1
+    popular_posts = [schema.data] * 2
+    timeline_posts = [schema.data] * 3
+    stories = dict(
+        carousel_posts=carousel_posts,
+        popular_posts=popular_posts,
+        timeline_posts=timeline_posts,
+    )
+    return jsonify(stories)
 
 
 if __name__ == '__main__':

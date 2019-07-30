@@ -262,7 +262,7 @@
 
 				    	<article class="post-box" style="background-image: url({{ story.photo.image }});">
 				    		<div class="post-overlay">
-				    			<a href="#" class="post-category" title="" rel="tag">{{ story.content.topic }}</a>
+				    			<a href="{{ story.link.url }}" class="post-category" title="" rel="tag">{{ story.content.topic }}</a>
 				    			<h3 class="post-title">{{ story.content.headline }}</h3>
 				    			<div class="post-meta">
 				    				<div class="post-meta-author-avatar">
@@ -270,16 +270,16 @@
 				    				</div>
 				    				<div class="post-meta-author-info">
 				    					<span class="post-meta-author-name">
-				    						<a href="#" title="" rel="author">{{ story.content.author }}</a>
+				    						<a href="{{ story.link.url }}" title="" rel="author">{{ story.content.author }}</a>
 				    					</span>
 				    					<span class="middot">·</span>
 				    					<span class="post-meta-date">
-				    						<abbr class="published updated" title="">{{ story.meta.publish_date }}</abbr>
+				    						<abbr class="published updated" title="">{{ story.meta.elapsed_time }} ago</abbr>
 				    					</span>
 				    				</div>
 				    			</div>
 				    		</div>
-				    		<a href="#" class="post-overlayLink"></a>
+				    		<a href="{{ story.link.url }}" class="post-overlayLink"></a>
 				    	</article>
 
 				    </div>
@@ -306,23 +306,23 @@
 							<div class="timeline-item">
 								<div class="timeline-left">
 									<div class="timeline-left-wrapper">
-										<a href="#" class="timeline-category" data-zebra-tooltip title="{{ story.content.topic }}"><i class="material-icons">&#xE894;</i></a>
+										<a href="{{ story.link.url }}" class="timeline-category" data-zebra-tooltip title="{{ story.content.topic }}"><i class="material-icons">&#xE894;</i></a>
 										<span class="timeline-date">{{ story.meta.elapsed_time }}</span>
 									</div>
 								</div>
 								<div class="timeline-right">
 									<div class="timeline-post-image">
-										<a href="#">
+										<a href="{{ story.link.url }}">
 											<img src="{{ story.photo.image }}" width="260">
 										</a>
 									</div>
 									<div class="timeline-post-content">
-										<a href="#" class="timeline-category-name">{{ story.content.topic }}</a>
-										<a href="#">
+										<a href="{{ story.link.url }}" class="timeline-category-name">{{ story.content.topic }}</a>
+										<a href="{{ story.link.url }}">
 											<h3 class="timeline-post-title">{{ story.content.headline }}</h3>
 										</a>
 										<div class="timeline-post-info">
-											<a href="#" class="author">{{ story.content.author }}</a>
+											<a href="{{ story.link.url }}" class="author">{{ story.content.author }}</a>
 											<span class="dot"></span>
 											<span class="comment">{{ story.social.comments }} comments</span>
 										</div>
@@ -356,7 +356,7 @@
 								<ul>
                   {% for story in stories.popular_posts %}
 									<li class="active">
-										<a href="#" style="background-image: url({{ story.photo.image }});">
+										<a href="{{ story.link.url }}" style="background-image: url({{ story.photo.image }});">
 											<div class="box-wrapper">
 												<div class="box-left">
 													<span>{{ loop.index }}</span>
@@ -377,7 +377,7 @@
 
 						<div class="seperator"></div>
 
-						<a href="#" class="widget-ad-box">
+						<a href="/" class="widget-ad-box">
 							<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa8Fz93YtiU4JTgdZPREuftod5MFKA0bMO96s4oog3KmFaTiiUGw" width="300" height="250">
 						</a>
 
