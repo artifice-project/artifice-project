@@ -1,8 +1,18 @@
-# website
+# artifice.website
 
 ### To Do
 
-- create module that converts epoch difference in time, to a string representing a generalization of how much time has passed.
+- ~~add echo endpoint to app~~
+```
+EXAMPLE
+
+http POST :5000 hello="world!"
+{
+  "hello" : "world!"
+}
+```
+
+- ~~create module that converts epoch difference in time, to a string representing a generalization of how much time has passed.~~
 ```
 EXAMPLE
 
