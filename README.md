@@ -2,7 +2,8 @@
 ###### "you are what you see"
 <a href="https://codeclimate.com/github/artifice-project/artifice-project/maintainability"><img src="https://api.codeclimate.com/v1/badges/f0e7b0062a6d7742227a/maintainability" /></a>
 <a href="https://codeclimate.com/github/artifice-project/artifice-project/test_coverage"><img src="https://api.codeclimate.com/v1/badges/f0e7b0062a6d7742227a/test_coverage" /></a>
-
+[![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/)
+[![Python 3.7](https://img.shields.io/badge/python-3.7-blue.svg)](https://www.python.org/downloads/release/python-370/)
 ---
 the module serves 3 basic purposes
 - crawl across sites, distilling relevant content
