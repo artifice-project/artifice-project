@@ -6,14 +6,12 @@
 │   ├── Dockerfile
 │   ├── README.md
 │   ├── __init__.py
-│   ├── my_objects.py
-│   ├── my_schema.py
-│   └── tests
+│   ├── configuration.py
+│   └── schemas.py
 ├── database
 │   ├── Dockerfile
 │   ├── README.md
-│   ├── __init__.py
-│   └── tests
+│   └── __init__.py
 ├── frontend
 │   ├── Dockerfile
 │   ├── README.md
@@ -25,25 +23,22 @@
 │   │   ├── custom2.css
 │   │   ├── logo.png
 │   │   └── navbar-style.css
-│   ├── templates
-│   │   ├── __.html
-│   │   ├── ___.html
-│   │   ├── fancy.html
-│   │   └── navbar.html
-│   └── tests
+│   └── templates
+│       ├── __.html
+│       ├── ___.html
+│       ├── fancy.html
+│       └── navbar.html
 ├── graphql
 │   ├── Dockerfile
 │   ├── README.md
-│   ├── __init__.py
-│   └── tests
+│   └── __init__.py
 ├── model
 │   ├── Dockerfile
 │   ├── README.md
 │   ├── __init__.py
 │   ├── npr_text.txt
 │   ├── npr_text_min.txt
-│   ├── rnn.py
-│   └── tests
+│   └── rnn.py
 ├── rest
 │   ├── Dockerfile
 │   ├── README.md
@@ -51,8 +46,7 @@
 │   ├── __main__.py
 │   ├── app.py
 │   ├── models.py
-│   ├── site.db
-│   └── tests
+│   └── site.db
 ├── scraper
 │   ├── Dockerfile
 │   ├── README.md
@@ -65,19 +59,20 @@
 │   ├── npr.py
 │   ├── queuer.py
 │   ├── spider.py
-│   ├── tests
 │   ├── web.py
 │   └── xray.py
 ├── util
 │   ├── Dockerfile
 │   ├── README.md
 │   ├── __init__.py
-│   ├── configuration.py
-│   └── tests
+│   └── times.py
 └── website
     ├── README.md
     ├── __init__.py
     ├── app.py
+    ├── client.py
+    ├── models.py
+    ├── schemas.py
     ├── static
     │   ├── css
     │   │   ├── main-style.css
@@ -95,7 +90,7 @@
     │       └── zebra-tooltip
     │           ├── zebra_tooltips.min.css
     │           └── zebra_tooltips.min.js
-    ├── templates
-    │   └── index.html
-    └── tests
+    ├── tasks.py
+    └── templates
+        └── index.html
 ```
