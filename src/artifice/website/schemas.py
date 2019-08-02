@@ -1,5 +1,6 @@
 from marshmallow import Schema, fields, pprint
 
+
 class StorySocial(Schema):
     comments = fields.Int()
     views = fields.Int()
@@ -26,6 +27,7 @@ class StoryContent(Schema):
 
 class StorySite(Schema):
     url = fields.Str()
+    story_id = fields.Int()
 
 
 class StoryCore(Schema):
@@ -34,3 +36,10 @@ class StoryCore(Schema):
     photo = fields.Nested(StoryPhoto())
     content = fields.Nested(StoryContent())
     link = fields.Nested(StorySite())
+
+
+if __name__ == '__main__':
+    def main():
+        pass
+
+    main()

@@ -62,30 +62,35 @@ def render_time(day, hour, minute):
     plural = 's'
     num = 0
     label = ''
-    if day > 6:
-        num = day%7
+
+    if (day is 0) and (hour is 0) and (minute is 0):
+        return 'Just Now'
+
+    elif day > 6:
+        num = day//7
         if num is 1:
             plural = ''
         label = 'week'
+
     elif day > 0:
         num = day
         if num is 1:
             plural = ''
         label = 'day'
+
     elif hour > 0:
         num = hour
         if num is 1:
             plural = ''
         label = 'hour'
+
     else:
         num = minute
         if num is 1:
             plural = ''
         label = 'minute'
 
-    sentence = f'{num} {label}{plural}'
-    return sentence
-
+    return f'{num} {label}{plural} ago'
 
 
 
