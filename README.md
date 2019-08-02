@@ -1,5 +1,8 @@
 # artifice
 ###### "you are what you see"
+<a href="https://codeclimate.com/github/artifice-project/artifice-project/maintainability"><img src="https://api.codeclimate.com/v1/badges/f0e7b0062a6d7742227a/maintainability" /></a>
+<a href="https://codeclimate.com/github/artifice-project/artifice-project/test_coverage"><img src="https://api.codeclimate.com/v1/badges/f0e7b0062a6d7742227a/test_coverage" /></a>
+
 ---
 the module serves 3 basic purposes
 - crawl across sites, distilling relevant content
@@ -98,7 +101,7 @@ def next_queue():
   pass
 
 def uniquify():
-  pass 
+  pass
 
 
 
